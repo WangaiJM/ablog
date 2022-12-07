@@ -10,3 +10,10 @@ class HomeView(ListView):
 
     def get_queryset(self):
         return Post.objects.order_by('id')
+
+class ArticleDetail(DetailView):
+    model: Post
+    template_name = 'article-detail.html'
+
+    def get_queryset(self):
+        return Post.objects.order_by('id')

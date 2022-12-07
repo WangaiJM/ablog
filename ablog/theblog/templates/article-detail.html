@@ -7,14 +7,7 @@
     <title>Simple Blog</title>
   </head>
   <body>
-    <h1>Hello World</h1>
-    <ul>
-      {% for post in object_list %}
-      <li>
-        <a href="{% url 'article_detail' post.slug %}">{{post.title}}</a> -
-        <a href="">{{post.author}}</a>
-      </li>
-      {% endfor%}
-    </ul>
+    <h1>{{post.title}}</h1>
+    <p>{{post.body}}</p>
   </body>
 </html>
