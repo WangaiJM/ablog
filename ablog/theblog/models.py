@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import uuid
+from django.urls import reverse
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
@@ -13,3 +14,5 @@ class Post(models.Model):
     class Meta:
         ordering = ('-created_at',)
 
+    def get_absolute_url(self):
+        return reverse('article_detail', args=[str(self.slug), str(self.id)])
