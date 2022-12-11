@@ -11,7 +11,11 @@
   <div class="card-body">
     <form method="POST">
       {% csrf_token %} {{ form.as_p}}
-      <button class="btn btn-primary btn-lg">Login</button>
+      <small>
+        If not registered
+        <a class="" href="{% url 'register' %}">click here</a>
+      </small>
+      <button class="btn btn-primary btn-lg d-block mt-4">Login</button>
     </form>
   </div>
 </div>

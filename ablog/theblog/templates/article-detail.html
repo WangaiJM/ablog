@@ -8,6 +8,7 @@
     </div>
     <div class="card-body">{{ post.body }}</div>
   </div>
+  {% if user.is_authenticated %}
   <div class="card-footer d-flex justify-content-between p-4">
     <a
       href="{% url 'edit_post' post.slug post.id %}"
@@ -20,6 +21,7 @@
       >Delete Post</a
     >
   </div>
+  {% endif %}
 </ul>
 
 {% endblock %}
