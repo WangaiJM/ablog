@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from .forms import PostForm
 
@@ -7,7 +7,7 @@ from .forms import PostForm
 # def home(request):
 #     return render(request, 'home.html', {})
 class HomeView(ListView):
-    model: Post
+    model = Post
     template_name = 'home.html'
     queryset = Post.objects.all()
     # queryset = Post.objects.all().order_by('-created_at')[:2]
@@ -18,7 +18,7 @@ class ArticleDetail(DetailView):
     queryset = Post.objects.all()
 
 class AddPostView(CreateView):
-    model: Post
+    model = Post
     form_class = PostForm
     template_name = 'add_post.html'
     queryset = Post.objects.all()
@@ -30,7 +30,12 @@ class AddPostView(CreateView):
 
 
 class UpdatePostView(UpdateView):
-    model: Post
+    model = Post
     form_class = PostForm
     template_name = 'edit_post.html'
     queryset = Post.objects.all()
+
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = 'post_delete.html'
+    success_url = '/'
