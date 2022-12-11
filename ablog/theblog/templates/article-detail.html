@@ -8,6 +8,14 @@
     </div>
     <div class="card-body">{{ post.body }}</div>
   </div>
+  <div class="card-footer d-flex justify-content-between p-4">
+    <a
+      href="{% url 'edit_post' post.slug post.id%}"
+      class="btn btn-primary btn-lg"
+      >Edit Post</a
+    >
+    <a href="" class="btn btn-danger btn-lg">Delete Post</a>
+  </div>
 </ul>
 
 {% endblock %}
