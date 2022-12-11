@@ -11,11 +11,13 @@
     {% for post in object_list %}
     <div class="card mt-2">
       <div class="card-header">
-        <h1>
-          <a href="{% url 'article_detail' post.slug post.id %}"
+        <h3>
+          <a
+            class="text-dark"
+            href="{% url 'article_detail' post.slug post.id %}"
             >{{ post.title}}</a
           >
-        </h1>
+        </h3>
       </div>
       <div class="card-body">{{ post.body | truncatewords:50 }}</div>
     </div>
